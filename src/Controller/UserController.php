@@ -122,7 +122,7 @@ class UserController extends AbstractController
             return new JsonResponse(['status' => 'Произошла ошибка при обновлении пользователя.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return new JsonResponse(['status' => 'Пользователь успешно обновлен!']);
+        return new JsonResponse(['status' => '"Данные пользователя успешно обновлены!']);
     }
 
     #[Route('/users/{id}', name: 'delete_user', methods: ['DELETE'])]
@@ -181,22 +181,6 @@ class UserController extends AbstractController
         ], Response::HTTP_OK);
     }
 
-//    #[Route('/users/{id}', name: 'get_user_by_id', methods: ['GET'])]
-//    public function getUserById(int $id): JsonResponse
-//    {
-//        // Найдем пользователя по id
-//        $user = $this->entityManager->getRepository(User::class)->find($id);
-//        if (!$user) {
-//            return new JsonResponse(['status' => 'Пользователь не найден!'], Response::HTTP_NOT_FOUND);
-//        }
-//
-//        // Возвращаем информацию о пользователе
-//        return new JsonResponse([
-//            'id' => $id,
-//            'name' => $user->getName(),
-//            'email' => $user->getEmail()
-//        ]);
-//    }
     #[Route('/users/search', name: 'get_user', methods: ['GET'])]
     public function getUserInfo(Request $request): JsonResponse
     {
